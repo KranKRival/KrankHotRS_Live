@@ -13,7 +13,7 @@ document.body.onload = nullCheck;
 
 
 // Parent url needed for the twitch player embed
-let parentURL = "yungsamd17.github.io"; // for the demo page
+let parentURL = "krankrival.github.io"; // for the demo page
 // let parentURL = "localhost"; // for local developement
 
 // fuction to check if the channel is live on Kick.com through the API every 10s
