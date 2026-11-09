@@ -154,25 +154,40 @@ function buildKick(channel) {
 
 function checkQuery() {
     let channelQuery = urlParams.get("channel");
-    let quality = urlParams.get("quality");
-    channelID = channelQuery;
-    if(channelQuery == "" || channelQuery == null){
+    let qualityQuery = urlParams.get("quality");
+    
+    // If query parameter is missing or empty, try cookie, otherwise default to a safe channel like "drac30" or "xqc"
+    if (!channelQuery || channelQuery === "null" || channelQuery === "") {
         let c = getCookie("channel");
-        channelQuery = c;
-        channelID = c;
+        if (c && c !== "null" && c !== "") {
+            channelID = c;
+        } else {
+            channelID = "drac30"; // Your default fallback channel
+            setCookie("channel", channelID, 365);
+        }
+    } else {
+        channelID = channelQuery;
     }
-    if(quality == "" || quality == "null") {
+
+    if(!qualityQuery || qualityQuery === "null") {
         quality = "720p60";
-    } else if(quality == "best") {
+    } else if(qualityQuery === "best") {
         quality = "chunked";
+    } else {
+        quality = qualityQuery;
     }
 
     buildTwitch(channelID, quality);
 }
 
-if( queryString == "" || queryString == null || queryString == "null") {
-    checkCookie();
-} else if( queryString != "") {
+// Cleaner execution check at the bottom of your script
+if (!queryString || queryString === "" || queryString === "null") {
+    let c = getCookie("channel");
+    if (!c || c === "null" || c === "") {
+        setCookie("channel", "drac30", 365);
+    }
+    checkQuery();
+} else {
     checkQuery();
 }
 
