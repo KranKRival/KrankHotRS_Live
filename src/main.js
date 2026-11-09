@@ -96,7 +96,7 @@ function checkCookie() {
         buildTwitch(channel, quality);
         nullCheck();
     } else {
-        let selectedChannel = prompt("Set Channel", "xqc");
+        let selectedChannel = prompt("Set Channel", "drac30");
         channelID = selectedChannel;
         buildTwitch(selectedChannel, quality);
         setCookie("channel", channel, 365);
@@ -127,7 +127,7 @@ function channelSelector() {
     clearInterval(interval);
     kickCount = 10;
     kickCheck = 1000;
-    let channel = prompt("Set Channel", "xqc");
+    let channel = prompt("Set Channel", "drac30");
     setCookie("channel", channel, 365);
     startKickCheck();
     checkCookie();
@@ -179,6 +179,6 @@ if( queryString == "" || queryString == null || queryString == "null") {
 
 async function nullCheck(){
     if(channelID == null || channelID == "null" || channelID == ""){
-    buildTwitch("xqc", "1080p60", "0.5")
+    buildTwitch("drac30", "1080p60", "0.5")
     }
 }
