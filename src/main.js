@@ -1,5 +1,5 @@
 // Global Configuration
-let quality = "720p60";
+let quality = "1080p60";
 let live = false; // true if live on Kick.com
 let alreadySwitched = false; // false if on twitch player, true if on Kick.com player
 let kickCheck = 1000; // how often the live check updates for Kick.com (ms)
@@ -54,7 +54,7 @@ function getInitialChannel() {
     }
     
     // Default fallback if no query parameter or cookie exists
-    return "drac30";
+    return "krankhotrs";
 }
 
 // Resolution Helper to determine quality setting
@@ -71,7 +71,7 @@ function getInitialQuality() {
 
 // Embedded Player Builders
 function buildTwitch(channel, targetQuality) {
-    if (!channel || channel === "null" || channel === "") channel = "drac30";
+    if (!channel || channel === "null" || channel === "") channel = "krankhotrs";
     
     const playerElem = document.getElementById('twitch-player');
     const chatElem = document.getElementById('twitch-chat');
@@ -89,7 +89,7 @@ function buildTwitch(channel, targetQuality) {
 }
 
 function buildKick(channel) {
-    if (!channel || channel === "null" || channel === "") channel = "drac30";
+    if (!channel || channel === "null" || channel === "") channel = "krankhotrs";
     
     const playerElem = document.getElementById('twitch-player');
     const chatElem = document.getElementById('twitch-chat');
