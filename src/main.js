@@ -1,5 +1,5 @@
 // Global Configuration
-let quality = "1080p60";
+let quality = "720p60";
 let live = false; // true if live on Kick.com
 let alreadySwitched = false; // false if on twitch player, true if on Kick.com player
 let kickCheck = 1000; // how often the live check updates for Kick.com (ms)
@@ -155,7 +155,7 @@ function channelSelector() {
     clearInterval(interval);
     kickCount = 10;
     kickCheck = 1000;
-    let selectedChannel = prompt("Set Channel", "xqc");
+    let selectedChannel = prompt("Set Channel", "krankhotrs");
     if (selectedChannel && selectedChannel.trim() !== "") {
         channelID = selectedChannel.trim();
         setCookie("channel", channelID, 365);
