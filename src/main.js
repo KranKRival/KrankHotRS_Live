@@ -1,4 +1,4 @@
-var channelID = ''; // channel ID for building the player and chat
+var channelID = 'drac30'; // channel ID for building the player and chat
 let quality = "720p60";
 let live = false; // true if live on Kick.com
 let alreadySwitched = false; // false if on twitch player true if on Kick.com player
